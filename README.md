@@ -1,1 +1,1 @@
-Repository for programs that need communication with cryptocurrency trading api's. Think of graphs, data storing, portfolio trackers, trading algorithms and trading bots.  
+Repository for programs that are able to communicate with cryptocurrency trading exchange api's. Think of graphs, data storing, portfolio trackers, trading algorithms and trading bots.  
