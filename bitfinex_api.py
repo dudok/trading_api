@@ -39,9 +39,8 @@ class BitfinexAUTH:
         payload_json = json.dumps(self.params)
         self.payload = base64.b64encode(bytes(payload_json, "utf-8"))
         self.signature = hmac.new(self.secret, self.payload, hashlib.sha384).hexdigest()
-        
-    
-
+          
+            
 class BitfinexResponse:
     """Creates a response object from a GET request that has an authenticator 
     object and has attributes:
@@ -81,7 +80,7 @@ class BitfinexResponse:
         self.params.update(self.pairs)
     
     def __str__(self): 
-        """the output when response object is printed.
+        """prints all the information of the response.
         """
         code= 'Response Code: ' + str(self.r.status_code) 
         headers = 'Response Header: ' + str(self.r.headers)
@@ -90,8 +89,8 @@ class BitfinexResponse:
     
 
 class TickersBitfinex:
-    """creates a ticker object with the live data of the currencies stored
-    in the self.data dictionary.
+    """creates a ticker object with the live data of all the currencies in the portfolio,
+    stored in the self.data dictionary. Tickers are public and don't need authentication.
     """
     def __init__(self, portfolio):
         self.data = {}
@@ -112,7 +111,7 @@ class BitfinexPortfolio:
     It has a Response object and a Tickers object. It has attributes:
     self.data: the data of the Response object with usd price added and zero
     balances removed.
-    self.total: the total amount of currencies owned calculated in dollars.
+    self.total: the total amount of dollar value of the currencies owned.
     """
     def __init__(self):
         self.total = 0
