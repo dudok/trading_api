@@ -50,9 +50,7 @@ class BitfinexResponse:
     def __init__(self, url, key, secret, pairs=None):
         
         self.url = url 
-        if pairs == None:
-            pairs = {}
-        self.pairs = pairs
+        self.pairs = pairs or {}
         self.params()
         self.auth = BitfinexAUTH(key, secret, self.params)
         self.r = self.request()
